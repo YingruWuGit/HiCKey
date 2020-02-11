@@ -23,7 +23,7 @@ Hic::Hic(const char* _fileName, const char* _fileNameP, const int _cv, const dou
 			sin1 >> rn;
 			while (rn >= r) {
 				countMatrix.emplace_back();
-				r++;
+				++r;
 			}
 			int cn = 0;
 			sin1 >> cn >> newElement;
