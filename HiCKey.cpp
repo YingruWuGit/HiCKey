@@ -1,6 +1,6 @@
 #include "HiCKey.h"
 
-//record every line even all zeros
+//record every line even all zero
 Hic::Hic(const char* _fileName, const char* _fileNameP, const int _cv, const double _sv, const double _hv) : fileName(_fileName), fileNameP(_fileNameP), cv(_cv), sv(_sv), hv(_hv), brownianP{}, cpI{}, cpS{}, pValue{} {
 	bool isList = false;
 	std::string newLine = "";
