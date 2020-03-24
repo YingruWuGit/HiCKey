@@ -12,6 +12,7 @@
 #include <algorithm>
 
 
+//declaration of Hic class
 class Hic {
 	const std::string fileName;
 	const std::string fileNameP;
