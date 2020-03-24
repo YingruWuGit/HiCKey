@@ -1,5 +1,5 @@
 #include "HiCKey.h"
-//HiCKey C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16_matrix.txt C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt 5 0.05 0.0005
+//HiCKey C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16.txt C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt 5 0.05 0.0005
 
 int main(int argc, char* argv[]) {
 	int _cv = std::atoi(argv[3]);
