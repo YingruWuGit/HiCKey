@@ -36,7 +36,7 @@ sometimes list form HiC data files are indexed by their resolution like the folo
 
 100000	150000	7.0
 
-150000	150000	20.0
+150000	150000  20.0
 
 0	200000	2.0
 
@@ -56,32 +56,32 @@ sometimes list form HiC data files are indexed by their resolution like the folo
 
 you shold divide the row and column indices by their resolution first making it like:
 
-0	0	16
+0	0	16.0
 
-0	1	4
+0	1	4.0
 
-1	1	133
+1	1	133.0
 
-2	2	75
+2	2	75.0
 
-1	3	1
+1	3	1.0
 
-2	3	7
+2	3	7.0
 
-3	3	20
+3	3	20.0
 
-0	4	2
+0	4	2.0
 
-1	4	9
+1	4	9.0
 
-2	4	28
+2	4	28.0
 
-3	4	10
+3	4	10.0
 
-4	4	244
+4	4	244.0
 
-2	5	10
+2	5	10.0
 
-4	5	32
+4	5	32.0
 
-5	5	23
+5	5	23.0
