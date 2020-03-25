@@ -10,7 +10,7 @@ It's easy to use. We have a sample HiC data in fold "examples".
 
 "nijchr16.txt" is a Human ES Cell Normalized Matrix downloaded from Ren Lab http://chromosome.sdsc.edu/mouse/hi-c/download.html
 
-"nijchr16_list.txt" is the list form HiC data of above matrix, Tad separated, containing only nonzero reads with their row and column indices. Our package can read both list form data file and the above matrix form file.
+"nijchr16_list.txt" is the list form HiC data of above matrix, Tab separated, containing only nonzero reads with their row and column indices. Our package can read both list form data file and the above matrix form file.
 
 After you download HiCKey.exe (or you download all 3 code files and compile yourself), for windows users you can open Command Prompt, change drive to the path containing HiCKey.exe and input following command line arguments (as an example):
 
