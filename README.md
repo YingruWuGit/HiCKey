@@ -14,7 +14,7 @@ It's easy to use. We have a sample HiC data in fold "examples".
 
 After you download HiCKey.exe (or you download all 3 code files and compile yourself), for windows users you can open Command Prompt, change drive to the path containing HiCKey.exe and input following command line arguments (as an example):
 
-HiCKey C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16.txt C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt 5 0.05 0.0005
+HiCKey C:/XXXX/nijchr16.txt C:/XXXX/BrownianP.txt 5 0.05 0.0005
 
 First argument is the name of the application, second is the path of you HiC data, third is the path of "BrownianP.txt", fourth is the lower bound of TAD size, fifth is the significance level alpha0 for testing a TAD boundary, sixth is the significance level alpha1 for assigning hierarchical levels (according to our paper). If you omit the sixth argument then HiCKey will not assign hierarchical orders.
 
