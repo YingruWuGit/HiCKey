@@ -1,10 +1,10 @@
 #include "HiCKey.h"
 
 //record every line even all zero
-Hic::Hic(const char* _fileName, const char* _fileNameP, const int _cv, const double _sv, const double _hv) : fileName(_fileName), fileNameP(_fileNameP), cv(_cv), sv(_sv), hv(_hv), brownianP{}, cpI{}, cpS{}, pValue{} {
+Hic::Hic(const char* fileName, const char* fileNameP, const int cv, const double sv, const double hv) : _fileName(fileName), _fileNameP(fileNameP), _cv(cv), _sv(sv), _hv(hv), _brownianP{}, _cpI{}, _cpS{}, _pValue{} {
 	bool isList = false;
 	std::string newLine = "";
-	std::ifstream fin(fileName);
+	std::ifstream fin(_fileName);
 	std::getline(fin, newLine);
 	std::istringstream sin(newLine);
 	double newElement = 0.0;
@@ -15,7 +15,7 @@ Hic::Hic(const char* _fileName, const char* _fileNameP, const int _cv, const dou
 	fin.close();
 	//read input as list
 	if (isList) {
-		fin.open(fileName, std::ifstream::in);
+		fin.open(_fileName, std::ifstream::in);
 		int r = 0;
 		while (std::getline(fin, newLine)) {
 			std::istringstream sin1(newLine);
@@ -34,7 +34,7 @@ Hic::Hic(const char* _fileName, const char* _fileNameP, const int _cv, const dou
 	}
 	//read input as matrix
 	else {
-		fin.open(fileName, std::ifstream::in);
+		fin.open(_fileName, std::ifstream::in);
 		int r = -1;
 		while (std::getline(fin, newLine)) {
 			++r;
@@ -59,7 +59,7 @@ Hic::Hic(const char* _fileName, const char* _fileNameP, const int _cv, const dou
 		pValue.emplace_back(1);
 	}
 	//read BrownainP
-	fin.open(fileNameP, std::ifstream::in);
+	fin.open(_fileNameP, std::ifstream::in);
 	std::getline(fin, newLine);
 	std::istringstream sin2(newLine);
 	int s = static_cast<int>(sv * 200000);
@@ -324,7 +324,7 @@ void Hic::bottomUp() {
 }
 
 void Hic::outPut() {
-	std::string fileName3(fileName);
+	std::string fileName3(_fileName);
 	std::string::iterator itr = std::prev(fileName3.end());
 	while (*itr != '.')
 		std::advance(itr, -1);

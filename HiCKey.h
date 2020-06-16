@@ -14,19 +14,19 @@
 
 //declaration of Hic class
 class Hic {
-	const std::string fileName;
-	const std::string fileNameP;
-	const int cv;
-	double sv;
-	double hv;
-	std::vector<std::vector<std::pair<int, double>>> countMatrix;
-	std::vector<double> brownianP;
+	const std::string _fileName;
+	const std::string _fileNameP;
+	const int _cv;
+	double _sv;
+	double _hv;
+	std::vector<std::vector<std::pair<int, double>>> _countMatrix;
+	std::vector<double> _brownianP;
 public:
-	std::vector<int> cpI;
-	std::vector<int> cpS;
-	std::vector<double> pValue;
+	std::vector<int> _cpI;
+	std::vector<int> _cpS;
+	std::vector<double> _pValue;
 
-	Hic(const char* _fileName, const char* _fileNameP, const int _cv, const double _sv, const double _hv = 0.0);
+	Hic(const char* fileName, const char* fileNameP, const int cv, const double sv, const double hv = 0.0);
 	void topDown();
 	void topDown(int cpt0, int cpt1);
 	void testCp(int cp, int store);
