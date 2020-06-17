@@ -52,68 +52,20 @@ Second column is their hierarchical orders. 1 means top layer, it goes to bottom
 
 Third column is the p-values of the boundaries.
 
-# A side note:
+# Format of list form datasets
 
-sometimes list form HiC data files are indexed by their resolution like the folowing 50k resolution data:
+Sometimes list form Hi-C dataset files are indexed by their resolution like the folowing 50k resolution data. The first column is row indices, second column is column indices and third column is count reads.
 
 0	0	16.0
 
 0	50000	4.0
 
-50000	50000	133.0
+50000	150000	5.0
 
-100000	100000	75.0
-
-50000	150000	1.0
-
-100000	150000	7.0
-
-150000	150000	20.0
-
-0	200000	2.0
-
-50000	200000	9.0
-
-100000	200000	28.0
-
-150000	200000	10.0
-
-200000	200000	244.0
-
-100000	250000	10.0
-
-200000	250000	32.0
-
-250000	250000	23.0
-
-you shold divide the row and column indices by their resolution first making it like the following, Tab separated.
+User should first divide the row and column indices by their resolution, making it looks like the following tab separated file.
 
 0	0	16.0
 
 0	1	4.0
 
-1	1	133.0
-
-2	2	75.0
-
-1	3	1.0
-
-2	3	7.0
-
-3	3	20.0
-
-0	4	2.0
-
-1	4	9.0
-
-2	4	28.0
-
-3	4	10.0
-
-4	4	244.0
-
-2	5	10.0
-
-4	5	32.0
-
-5	5	23.0
+1	3	5.0
