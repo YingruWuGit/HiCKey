@@ -1,7 +1,7 @@
 #include "HiCKey.h"
 
 //record every line even all zero
-Hic::Hic(const char* fileName, const char* fileNameP, const int cv, const double sv, const double hv) : _fileName(fileName), _fileNameP(fileNameP), _cv(cv), _sv(sv), _hv(hv), _brownianP{}, _cpI{}, _cpS{}, _pValue{} {
+Hic::Hic(const char* fileName, const char* fileNameP, const int cv, const double sv, const double hv) : _fileName{ fileName }, _fileNameP{ fileNameP }, _cv{ cv }, _sv{ sv }, _hv{ hv }, _brownianP{}, _cpI{}, _cpS{}, _pValue{} {
 	bool isList = false;
 	std::string newLine = "";
 	std::ifstream fin(_fileName);
@@ -22,13 +22,13 @@ Hic::Hic(const char* fileName, const char* fileNameP, const int cv, const double
 			int rn = 0;
 			sin1 >> rn;
 			while (rn >= r) {
-				countMatrix.emplace_back();
+				_countMatrix.emplace_back();
 				++r;
 			}
 			int cn = 0;
 			sin1 >> cn >> newElement;
 			if (cn >= rn)
-				countMatrix[rn].emplace_back(cn, newElement);
+				_countMatrix[rn].emplace_back(cn, newElement);
 		}
 		fin.close();
 	}
@@ -39,14 +39,14 @@ Hic::Hic(const char* fileName, const char* fileNameP, const int cv, const double
 		while (std::getline(fin, newLine)) {
 			++r;
 			std::istringstream sin0(newLine);
-			countMatrix.emplace_back();
+			_countMatrix.emplace_back();
 			int c = 0;
 			for (; c < r; ++c)
 				sin0 >> newElement;
 
 			while (sin0 >> newElement) {
 				if (newElement != 0.0)
-					countMatrix[r].emplace_back(c, newElement);
+					_countMatrix[r].emplace_back(c, newElement);
 
 				++c;
 			}
@@ -54,9 +54,9 @@ Hic::Hic(const char* fileName, const char* fileNameP, const int cv, const double
 		fin.close();
 	}
 	//initialie cpI and pValue, add a dummy element at the end
-	for (int z = 0; z < countMatrix.size() + 1; ++z) {
-		cpI.emplace_back(-1);
-		pValue.emplace_back(1);
+	for (int z = 0; z < _countMatrix.size() + 1; ++z) {
+		_cpI.emplace_back(-1);
+		_pValue.emplace_back(1);
 	}
 	//read BrownainP
 	fin.open(_fileNameP, std::ifstream::in);
@@ -66,33 +66,33 @@ Hic::Hic(const char* fileName, const char* fileNameP, const int cv, const double
 	int i = 0;
 	while (sin2 >> newElement) {
 		++i;
-		brownianP.emplace_back(newElement);
+		_brownianP.emplace_back(newElement);
 		if (i == s)
-			sv = newElement; //sv is compared to lambda, hv to p-value
+			_sv = newElement; //sv is compared to lambda, hv to p-value
 	}
 	fin.close();
 	return;
 }
 
 void Hic::topDown() {
-	int cm = countMatrix.size();
+	int cm = _countMatrix.size();
 	std::deque<int> cpT{}; //cpT is a temporary CP vector(all starting points)
 	for (int z = 0; z < cm; ++z) { //eliminate start zeros
-		if (countMatrix[z].size() != 0) {
-			cpI[z] = 0;
+		if (_countMatrix[z].size() != 0) {
+			_cpI[z] = 0;
 			cpT.emplace_back(z);
 			break;
 		}
 	}
 	for (int z = cm - 1; z != -1; --z) { //eliminate ending zeros
-		if (countMatrix[z].size() != 0) {
-			cpI[z + 1] = 0; //last start CP, maybe at dummy
+		if (_countMatrix[z].size() != 0) {
+			_cpI[z + 1] = 0; //last start CP, maybe at dummy
 			cpT.emplace_back(z + 1);
 			break;
 		}
 	}
 	while (cpT.size() > 1) {
-		if (cpT[1] - cpT[0] < 2 * cv) {
+		if (cpT[1] - cpT[0] < 2 * _cv) {
 			cpT.pop_front();
 			continue;
 		}
@@ -100,7 +100,7 @@ void Hic::topDown() {
 		std::vector<double> rowSum(lce - lcs, 0.0);
 		std::vector<double> colSum(lce - lcs, 0.0);
 		for (int z = lcs; z < lce; ++z) {
-			for (const std::pair<int, double>& p : countMatrix[z]) {
+			for (const std::pair<int, double>& p : _countMatrix[z]) {
 				if (p.first >= lce)
 					break;
 
@@ -111,14 +111,14 @@ void Hic::topDown() {
 		std::pair<int, double> logLR(lcs, INFINITY);
 		int sizA = (lce - lcs + 1) * (lce - lcs) / 2;
 		double subA = std::accumulate(rowSum.begin(), rowSum.end(), 0.0);
-		double subA1 = std::accumulate(colSum.begin(), std::next(colSum.begin(), cv - 1), 0.0);
-		double subA2 = std::accumulate(std::next(rowSum.begin(), cv - 1), rowSum.end(), 0.0);
+		double subA1 = std::accumulate(colSum.begin(), std::next(colSum.begin(), _cv - 1), 0.0);
+		double subA2 = std::accumulate(std::next(rowSum.begin(), _cv - 1), rowSum.end(), 0.0);
 		double subA3 = subA - subA1 - subA2;
 		if (subA2 == 0.0) {//most zeros in subA, put no change point
 			cpT.pop_front();
 			continue;
 		}
-		for (int x = cv; x <= lce - lcs - cv; x++) {//put a change point at location x(start of a block)
+		for (int x = _cv; x <= lce - lcs - _cv; x++) {//put a change point at location x(start of a block)
 			int y = x - 1;
 			subA1 += colSum[y];
 			subA2 -= rowSum[y];
@@ -144,7 +144,7 @@ void Hic::topDown() {
 			cpT.pop_front();
 			continue;
 		}
-		cpI[logLR.first] = ((cpI[lcs] >= cpI[lce]) ? cpI[lcs] : cpI[lce]) + 1; //adjust cpI for new change point founded
+		_cpI[logLR.first] = ((_cpI[lcs] >= _cpI[lce]) ? _cpI[lcs] : _cpI[lce]) + 1; //adjust cpI for new change point founded
 		cpT.emplace_back(logLR.first);
 		std::sort(cpT.begin(), cpT.end());
 	}
@@ -158,7 +158,7 @@ void Hic::topDown(int cpt0, int cpt1) {
 		std::vector<double> rowSum(lce - lcs, 0.0);
 		std::vector<double> colSum(lce - lcs, 0.0);
 		for (int z = lcs; z < lce; ++z) {
-			for (const std::pair<int, double>& p : countMatrix[z]) {
+			for (const std::pair<int, double>& p : _countMatrix[z]) {
 				if (p.first >= lce)
 					break;
 
@@ -177,7 +177,7 @@ void Hic::topDown(int cpt0, int cpt1) {
 			subA1 += colSum[y];
 			subA2 -= rowSum[y];
 			subA3 += rowSum[y] - colSum[y];
-			if (cpI[x + lcs] == -1)
+			if (_cpI[x + lcs] == -1)
 				continue;
 
 			int sizA1 = (x + 1) * x / 2;
@@ -198,7 +198,7 @@ void Hic::topDown(int cpt0, int cpt1) {
 			cpT.pop_front();
 			continue;
 		}
-		cpI[logLR.first] = ((cpI[lcs] >= cpI[lce]) ? cpI[lcs] : cpI[lce]) + 1; //adjust cpI for new change point founded
+		_cpI[logLR.first] = ((_cpI[lcs] >= _cpI[lce]) ? _cpI[lcs] : _cpI[lce]) + 1; //adjust cpI for new change point founded
 		cpT.emplace_back(logLR.first);
 		std::sort(cpT.begin(), cpT.end());
 	}
@@ -207,10 +207,10 @@ void Hic::topDown(int cpt0, int cpt1) {
 
 void Hic::testCp(int cp, int store) {
 	int lcs = cp - 1, lce = cp + 1;
-	while (cpI[lcs] == -1) //make sure about boundary
+	while (_cpI[lcs] == -1) //make sure about boundary
 		--lcs;
 
-	while (cpI[lce] == -1) //make sure about boundary
+	while (_cpI[lce] == -1) //make sure about boundary
 		++lce;
 
 	double subA = 0.0;
@@ -219,7 +219,7 @@ void Hic::testCp(int cp, int store) {
 	double subA3 = 0.0;
 	double sigmaS = 0.0;
 	for (int z = lcs; z < lce; ++z) {
-		for (const std::pair<int, double>& p : countMatrix[z]) {
+		for (const std::pair<int, double>& p : _countMatrix[z]) {
 			if (p.first >= lce)
 				break;
 
@@ -245,17 +245,17 @@ void Hic::testCp(int cp, int store) {
 	double l2 = ((subA2 == 0.0) ? INFINITY : subA2 * subA2 / (sigmaS * sizA2));
 	double l3 = ((subA3 == 0.0) ? INFINITY : subA3 * subA3 / (sigmaS * sizA3));
 	double lambda = l - l1 - l2 - l3;
-	if (lambda > sv)
-		cpI[cp] = -1;
+	if (lambda > _sv)
+		_cpI[cp] = -1;
 
-	if (store && (cpI[cp] > 0)) {
+	if (store && (_cpI[cp] > 0)) {
 		int pp = 0;
-		while ((pp < 20001) && (brownianP[pp] <= lambda))
+		while ((pp < 20001) && (_brownianP[pp] <= lambda))
 			++pp;
 
-		cpI[cp] = 1; //reset change point order
-		pValue[cp] = pp / 200000.0; //record p-values
-		cpS.emplace_back(cp);
+		_cpI[cp] = 1; //reset change point order
+		_pValue[cp] = pp / 200000.0; //record p-values
+		_cpS.emplace_back(cp);
 	}
 	return;
 }
@@ -263,12 +263,12 @@ void Hic::testCp(int cp, int store) {
 void Hic::pruning() {
 	//first pruning
 	std::map<int, std::vector<int>> cpsMap{};
-	for (int z = 0; z < cpI.size(); ++z) {
-		if ((cpI[z] > 0) && (cpsMap.find(cpI[z]) == cpsMap.end()))
-			cpsMap[cpI[z]] = { z };
+	for (int z = 0; z < _cpI.size(); ++z) {
+		if ((_cpI[z] > 0) && (cpsMap.find(_cpI[z]) == cpsMap.end()))
+			cpsMap[_cpI[z]] = { z };
 
-		else if (cpI[z] > 0)
-			cpsMap[cpI[z]].emplace_back(z);
+		else if (_cpI[z] > 0)
+			cpsMap[_cpI[z]].emplace_back(z);
 	}
 	for (auto ritr = cpsMap.rbegin(); ritr != cpsMap.rend(); std::advance(ritr, 1)) {
 		for (int cp : (*ritr).second)
@@ -276,35 +276,35 @@ void Hic::pruning() {
 	}
 	//second pruning and record p-values
 	std::map<int, std::vector<int>> cpsMap1{};
-	for (int z = 0; z < cpI.size(); ++z) {
-		if ((cpI[z] > 0) && (cpsMap1.find(cpI[z]) == cpsMap1.end()))
-			cpsMap1[cpI[z]] = { z };
+	for (int z = 0; z < _cpI.size(); ++z) {
+		if ((_cpI[z] > 0) && (cpsMap1.find(_cpI[z]) == cpsMap1.end()))
+			cpsMap1[_cpI[z]] = { z };
 
-		else if (cpI[z] > 0)
-			cpsMap1[cpI[z]].emplace_back(z);
+		else if (_cpI[z] > 0)
+			cpsMap1[_cpI[z]].emplace_back(z);
 	}
 	for (auto ritr = cpsMap1.rbegin(); ritr != cpsMap1.rend(); std::advance(ritr, 1)) {
 		for (int cp : (*ritr).second)
 			testCp(cp, 1);
 	}
-	std::sort(cpS.begin(), cpS.end());
+	std::sort(_cpS.begin(), _cpS.end());
 	return;
 }
 
 void Hic::bottomUp() {
-	if (hv == 0.0)
+	if (_hv == 0.0)
 		return;
 
-	int fst = 0, lst = cpI.size() - 1;
-	while (cpI[fst] != 0)
+	int fst = 0, lst = _cpI.size() - 1;
+	while (_cpI[fst] != 0)
 		++fst;
 
-	while (cpI[lst] != 0)
+	while (_cpI[lst] != 0)
 		--lst;
 
 	std::vector<int> idh = { fst };
-	for (int z : cpS) {
-		if (pValue[z] <= hv) {
+	for (int z : _cpS) {
+		if (_pValue[z] <= _hv) {
 			if (idh.size() > 2)
 				topDown(idh[0], z);
 
@@ -312,8 +312,8 @@ void Hic::bottomUp() {
 			idh.emplace_back(z);
 		}
 		else {
-			cpI[z] = 2;
-			if (z < cpS.back())
+			_cpI[z] = 2;
+			if (z < _cpS.back())
 				idh.emplace_back(z);
 
 			else if (idh.size() > 1)
@@ -332,8 +332,8 @@ void Hic::outPut() {
 	fileName3.erase(itr, fileName3.end());
 	fileName3 += "_output.txt";
 	std::ofstream fout(fileName3);
-	for (int c : cpS)
-		fout << c << '\t' << cpI[c] << '\t' << pValue[c] << '\n';
+	for (int c : _cpS)
+		fout << c << '\t' << _cpI[c] << '\t' << _pValue[c] << '\n';
 
 	fout.close();
 	return;
@@ -344,17 +344,17 @@ std::vector<std::vector<double>> Hic::subMatrix(int s, int e) {
 	double lEle = 0.0; //fill in lower triangular part
 	std::vector<std::vector<double>> half(e - s, std::vector<double>(e - s, 0.0));
 	for (int z = s; z < e; ++z) {
-		for (const std::pair<int, double>& p : countMatrix[z]) {
+		for (const std::pair<int, double>& p : _countMatrix[z]) {
 			if (p.first >= e)
 				break;
 
 			half[z - s][p.first - s] = p.second;
-			lEle += ((p.first < 2 * cv + z) ? p.second : 0.0);
+			lEle += ((p.first < 2 * _cv + z) ? p.second : 0.0);
 		}
 	}
-	std::vector<int> cpi(cpI.begin() + s, cpI.begin() + e);
+	std::vector<int> cpi(_cpI.begin() + s, _cpI.begin() + e);
 	int O = *std::max_element(cpi.begin(), cpi.end());
-	lEle /= 2 * static_cast<double>(cv) * (static_cast<double>(e) - static_cast<double>(s)) * O;
+	lEle /= 2 * static_cast<double>(_cv) * (static_cast<double>(e) - static_cast<double>(s)) * O;
 	for (int o = 1; o <= O; ++o) {
 		int lcs = 0;
 		for (int i = 1; i < e - s; ++i) {
