@@ -250,7 +250,7 @@ void Hic::testCp(int cp, int store) {
 
 	if (store && (_cpI[cp] > 0)) {
 		_cpI[cp] = 1; //reset change point order
-		_pValue[cp] = std::count_if(_brownianP.begin(), _brownianP.end(), [lambda](int pp) {return pp <= lambda; }) / 200000.0; //record p-values
+		_pValue[cp] = (std::upper_bound(_brownianP.begin(), _brownianP.end(), lambda) - _brownianP.begin()) / 200000.0; //record p-values
 		_cpS.emplace_back(cp);
 	}
 	return;
