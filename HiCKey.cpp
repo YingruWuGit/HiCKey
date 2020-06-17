@@ -62,7 +62,7 @@ Hic::Hic(const char* fileName, const char* fileNameP, const int cv, const double
 	fin.open(_fileNameP, std::ifstream::in);
 	std::getline(fin, newLine);
 	std::istringstream sin2(newLine);
-	int s = static_cast<int>(sv * 200000);
+	int s = static_cast<int>(_sv * 200000);
 	int i = 0;
 	while (sin2 >> newElement) {
 		++i;
@@ -249,12 +249,8 @@ void Hic::testCp(int cp, int store) {
 		_cpI[cp] = -1;
 
 	if (store && (_cpI[cp] > 0)) {
-		int pp = 0;
-		while ((pp < 20001) && (_brownianP[pp] <= lambda))
-			++pp;
-
 		_cpI[cp] = 1; //reset change point order
-		_pValue[cp] = pp / 200000.0; //record p-values
+		_pValue[cp] = std::count_if(_brownianP.begin(), _brownianP.end(), [lambda](int pp) {return pp <= lambda; }) / 200000.0; //record p-values
 		_cpS.emplace_back(cp);
 	}
 	return;
