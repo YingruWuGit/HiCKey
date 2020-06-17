@@ -44,7 +44,13 @@ For example on author's computer running the "nijchr16.txt" is like the followin
 
 # Output
 
-The output file would be named as "nijchr16_output.txt" in the same fold as your data file. In the output file there would be three columns: first the indices for change-points, second their hierarchical orders and third local p-values of each change-point.
+For the above example the output file would have name "nijchr16_output.txt" located in the same folder as the dataset file "nijchr16.txt". The output file has three columns:
+
+First column is the indices for change-points (TAD boundaries).
+
+Second column is their hierarchical orders. 1 means top layer, it goes to bottom layer as the order increases (as explained in our paper). If the "hv" argument was ommited when you run the program, then all the orders would be 1.
+
+Third column is the p-values of the boundaries.
 
 # A side note:
 
