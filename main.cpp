@@ -4,9 +4,7 @@
 int main(int argc, char* argv[]) {
 	int cv = std::atoi(argv[3]);
 	double sv = std::atof(argv[4]);
-	double hv = 0.0;
-	if (argc > 5)
-		hv = std::atof(argv[5]);
+	double hv = (argc > 5) ? std::atof(argv[5]) : 0.0;
 
 	Hic sample(argv[1], argv[2], cv, sv, hv);
 	sample.topDown();
