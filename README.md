@@ -2,7 +2,7 @@
 
 This is the software HiCKey for detecting TAD boundaries and their hierarchical strucutre in HiC data. For the detail of our methodology please refer to "Decipher hierarchical organization of topologically associated domains through change-point testing". This software package is written in C++. It contains 1 header file: HiCKey.h; 2 source files: HiCKey.cpp and main.cpp. The compiled application is HiCKey.exe. We will also incorporate the C++ code into an R package.
 
-# Usage:
+# Examples:
 
 We have two sample HiC datasets in the folder "examples".
 
@@ -16,11 +16,34 @@ The folder "examples" contains three files:
 
 Our software can read both the matrix and list form data files.
 
-After you download HiCKey.exe (or you download all 3 code files and compile yourself), for windows users you can open Command Prompt, change drive to the path containing HiCKey.exe and input following command line arguments (as an example):
+# Usage:
 
-HiCKey C:/XXXX/nijchr16.txt C:/XXXX/BrownianP.txt 5 0.05 0.0005
+To run the program, you need 5 arguments as follows.
 
-First argument is the name of the application, second is the path of you HiC data, third is the path of "BrownianP.txt", fourth is the lower bound of TAD size, fifth is the significance level alpha0 for testing a TAD boundary, sixth is the significance level alpha1 for assigning hierarchical levels (according to our paper). If you omit the sixth argument then HiCKey will not assign hierarchical orders.
+1. fileName: path and name of you Hi-C dataset (either matrix or list form, our program can read both).
+
+2. fileNameP: path and name of the "BrownianP.txt".
+
+3. cv: lower bound of TAD size (as explained in our paper).
+
+4. sv: significance level alpha0 for testing TAD boundaries (as explained in our paper).
+
+5. hv: hierarchical p-value cutoff alpha1 for identifying nested TADs (as explained in our paper). This argument is optional. If it's ommited, then HiCKey will not assign hierarchical order of the TAD boundaries.
+
+After you download HiCKey.exe (or download all 3 code files and compile), windows users can open Command Prompt, change drive and path to the folder containing HiCKey.exe then input command line arguments:
+
+HiCKey fileName fileNameP cv sv hv
+
+or
+
+HiCKey fileName fileNameP cv sv
+
+For example on author's computer it's like this:
+
+
+
+
+
 
 The output file would be named as "nijchr16_output.txt" in the same fold as your data file. In the output file there would be three columns: first the indices for change-points, second their hierarchical orders and third local p-values of each change-point.
 
