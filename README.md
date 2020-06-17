@@ -38,12 +38,11 @@ or
 
 HiCKey fileName fileNameP cv sv
 
-For example on author's computer it's like this:
+For example on author's computer running the "nijchr16.txt" is like the following pic shows.
 
+![Untitled](https://user-images.githubusercontent.com/60941766/84854383-7caebf80-b02f-11ea-852a-c1c88afb6153.png)
 
-
-
-
+# Output
 
 The output file would be named as "nijchr16_output.txt" in the same fold as your data file. In the output file there would be three columns: first the indices for change-points, second their hierarchical orders and third local p-values of each change-point.
 
