@@ -18,11 +18,7 @@ Our software can read both the matrix and list form data files.
 
 # Normalization:
 
-HiCKey requres normalized Hi-C matrices, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many Hi-C data are released in this form. Otherwise we suggest a simple normalization method: x_{ij}
-
-
-
-
+HiCKey requres normalized Hi-C matrices, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many Hi-C data are released in this form. Otherwise we suggest a simple normalization method. Let Y = y_{ij} be raw reads, apply x_{ij} = y_{ij}/(|i-j|^a) to do the transform. the parameter a should be estimated from data close to main diagonal where most of the power law effect pronounced.
 
 # Usage:
 
@@ -49,6 +45,8 @@ HiCKey fileName fileNameP cv sv
 For example on author's computer running the "nijchr16.txt" is like the following pic shows.
 
 ![Untitled](https://user-images.githubusercontent.com/60941766/84854383-7caebf80-b02f-11ea-852a-c1c88afb6153.png)
+
+"hickey_linux.exe" is used for linux system in exactly the same way.
 
 # Output
 
