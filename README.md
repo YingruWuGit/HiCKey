@@ -1,6 +1,6 @@
 # HiCKey
 
-This is the software HiCKey for detecting TAD boundaries and their hierarchical strucutre in HiC data. For the detail of our methodology please refer to "Decipher hierarchical organization of topologically associated domains through change-point testing". This software package is written in C++. It contains 1 header file: HiCKey.h; 2 source files: HiCKey.cpp and main.cpp. The compiled application is HiCKey.exe. We will also incorporate the C++ code into an R package.
+This is the software HiCKey for detecting TAD boundaries and their hierarchical strucutre in HiC data. For the detail of our methodology please refer to "Decipher hierarchical organization of topologically associated domains through change-point testing". This software package is written in C++. It contains 1 header file: HiCKey.h; 2 source files: HiCKey.cpp and main.cpp. The compiled application is HiCKey.exe and hickey_linux.exe.
 
 # Examples:
 
@@ -15,6 +15,14 @@ The folder "examples" contains three files:
 "nijchr16_list.txt" is the list form of the matrix, Tab separated, containing only nonzero reads with their row and column indices(0 based).
 
 Our software can read both the matrix and list form data files.
+
+# Normalization:
+
+HiCKey requres normalized Hi-C matrices, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many Hi-C data are released in this form. Otherwise we suggest a simple normalization method: x_{ij}
+
+
+
+
 
 # Usage:
 
