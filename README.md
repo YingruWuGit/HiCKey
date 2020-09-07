@@ -46,7 +46,9 @@ For example on author's computer running the "nijchr16.txt" is like the followin
 
 ![Untitled](https://user-images.githubusercontent.com/60941766/84854383-7caebf80-b02f-11ea-852a-c1c88afb6153.png)
 
-"hickey_linux.exe" is used for linux system in exactly the same way. Except the first argument should be "hickey_linux" instead of "HiCKey".
+"hickey_linux.exe" is used for linux system in exactly the same way. Except the first argument should be "~/hickey_linux" instead of "HiCKey".
+
+If the terminal shows "bash: ~/hickey_linux: Permission denied", try input "chmod u+x ~/hickey_linux" first. Then execute the programe.
 
 # Output
 
