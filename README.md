@@ -62,9 +62,9 @@ Third column is the p-values of the boundaries.
 
 Sometimes list form Hi-C dataset files are indexed by their resolution like the folowing 50k resolution data. The first column is row indices, second column is column indices and third column is count reads.
 
-0	0	16.0
+0    0   16.0
 
-0	50000	4.0
+0   50000 4.0
 
 50000	150000	5.0
 
