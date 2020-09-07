@@ -1,6 +1,6 @@
 # HiCKey
 
-This is the software HiCKey for detecting TAD boundaries and their hierarchical strucutre in HiC data. For the detail of our methodology please refer to "Decipher hierarchical organization of topologically associated domains through change-point testing". This software package is written in C++. It contains 1 header file: "HiCKey.h"; 2 source files: "HiCKey.cpp" and "main.cpp". The compiled application are "HiCKey.exe" for Windows and "hickey_linux.exe" for Linux.
+This is the software HiCKey for detecting TAD boundaries and their hierarchical strucutre in HiC data. For the detail of our methodology please refer to "Decipher hierarchical organization of topologically associated domains through change-point testing". This software package is written in C++ and compiled by Visual C++ and GNU C++14. It contains 1 header file: "HiCKey.h"; 2 source files: "HiCKey.cpp" and "main.cpp". The compiled application are "HiCKey.exe" for Windows and "hickey_linux.exe" for Linux.
 
 # Examples:
 
@@ -46,7 +46,7 @@ For example on author's computer running the "nijchr16.txt" is like the followin
 
 ![Untitled](https://user-images.githubusercontent.com/60941766/84854383-7caebf80-b02f-11ea-852a-c1c88afb6153.png)
 
-"hickey_linux.exe" is used for linux system in exactly the same way.
+"hickey_linux.exe" is used for linux system in exactly the same way. Except the first argument should be "hickey_linux" instead of "HiCKey".
 
 # Output
 
