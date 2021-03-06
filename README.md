@@ -12,9 +12,11 @@ There are three sample HiC datasets in the folder "examples".
 
 "chr21_50kb.RAWobserved" is one of the HiC matrices produced by Rao (2015) and downloaded from the Gene Expression Omnibus (GEO) database (http://www.ncbi.nlm.nih.gov/geo/).
 
+"samp2n.txt" is the hierarchical TADs example demonstrated in our paper, it was produced by Forcato (2017) and normalized.
+
 # Normalization:
 
-HiCKey requres normalized Hi-C matrices, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many Hi-C data are released in this form. Otherwise we suggest a simple normalization method. Let Y = y_{ij} be raw reads, apply x_{ij} = y_{ij}/(|i-j|^a) to do the transform. the parameter a should be estimated from data close to main diagonal where most of the power law effect pronounced.
+HiCKey requires normalized Hi-C matrix, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many Hi-C datasets are released in this form. Otherwise we suggest a simple normalization method. Let Y = y_{ij} be raw reads, apply x_{ij} = y_{ij}/(|i-j|^a) to do the transform. the parameter 'a' should be estimated from elements close to the main diagonal where most of the power law effect pronounced.
 
 # Usage:
 
