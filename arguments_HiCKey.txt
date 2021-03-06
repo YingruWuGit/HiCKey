@@ -1,0 +1,6 @@
+C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16.txt
+C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt
+m
+5
+0.05
+0.00005
