@@ -10,7 +10,7 @@ There are four sample HiC datasets in the folder "examples".
 
 "nijchr16_list.txt" is the list form of the matrix, Tab separated, containing only nonzero reads with their row and column indices (0 based).
 
-"chr21_50kb.RAWobserved" is one of the HiC matrices produced by Rao (2015) and downloaded from the Gene Expression Omnibus (GEO) database (http://www.ncbi.nlm.nih.gov/geo/).
+"chr21_50kb.RAWobserved" is one of the unnormalized HiC matrices produced by Rao (2015) and downloaded from the Gene Expression Omnibus (GEO) database (http://www.ncbi.nlm.nih.gov/geo/).
 
 "samp2n.txt" is the hierarchical TADs example demonstrated in our paper, it was produced by Forcato (2017) and normalized.
 
@@ -22,9 +22,9 @@ HiCKey requires normalized Hi-C matrix, that the effect of power law decay remov
 
 "BrownianP.txt" is the simulated distribution of our test statistic, "arguments.txt" contains the parameter settings. They are essential for every analysis.
 
-To run the program, you need 5 arguments as follows.
+To run the program, you need to specify 6 arguments in the file "arguments.txt":
 
-1. fileName: path and name of you Hi-C dataset (either matrix or list form, our program can read both).
+1st line is Hi-C matrix path and name \nijchr16.txt
 
 2. fileNameP: path and name of the "BrownianP.txt".
 
