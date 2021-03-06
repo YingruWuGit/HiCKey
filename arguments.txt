@@ -1,6 +1,0 @@
-/home/yingruwu/nijchr16.txt
-/home/yingruwu/BrownianP.txt
-m
-5
-0.05
-0.00005
