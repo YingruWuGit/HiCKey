@@ -22,33 +22,29 @@ HiCKey requires normalized Hi-C matrix, that the effect of power law decay remov
 
 "BrownianP.txt" is the simulated distribution of our test statistic, "arguments.txt" contains the parameter settings. They are essential for every analysis.
 
-To run the program, you need to specify 6 arguments in the file "arguments.txt":
+To run the program, you need to specify 6 arguments in the file "arguments.txt"
 
-1st line is Hi-C matrix path and name \nijchr16.txt
+1st line is Hi-C matrix path and name: ~/nijchr16.txt
 
-2. fileNameP: path and name of the "BrownianP.txt".
+2nd line is path and name of "BrownianP": ~/BrownianP.txt
 
-3. cv: lower bound of TAD size (as explained in our paper).
+3rd line is Hi-C matrix form. If it is matrix form then input 'm', if it is list form then input resolution.
 
-4. sv: significance level alpha0 for testing TAD boundaries (as explained in our paper).
+4st line is the lower bound of TAD size
 
-5. hv: hierarchical p-value cutoff alpha1 for identifying nested TADs (as explained in our paper). This argument is optional. If it's ommited, then HiCKey will not assign hierarchical order of the TAD boundaries.
+5st line is alpha0 to test if a change-point is significant
 
-After you download HiCKey.exe (or download all 3 code files and compile), windows users can open Command Prompt, change drive and path to the folder containing HiCKey.exe then input command line arguments:
+6st line is alpha1 for identifying nested TAD. If input 0 then HiCKey will not output hierarchical orders.
 
-HiCKey fileName fileNameP cv sv hv
+After you download HiCKey.exe or hickey (or download all 3 code files and compile), windows users can open Command Prompt, change drive to the folder of HiCKey.exe then type in:
 
-or
+HiCKey ~/arguments.txt
 
-HiCKey fileName fileNameP cv sv
+Linux users can type in:
 
-For example on author's computer running the "nijchr16.txt" is like the following pic shows.
+~/hickey ~/arguments.txt
 
-![Untitled](https://user-images.githubusercontent.com/60941766/84854383-7caebf80-b02f-11ea-852a-c1c88afb6153.png)
-
-"hickey_linux.exe" is used for linux system in exactly the same way. Except the first argument should be "~/hickey_linux" instead of "HiCKey".
-
-If the terminal shows "bash: ~/hickey_linux: Permission denied", try input "chmod u+x ~/hickey_linux" first. Then execute the programe.
+If the terminal shows "bash: ~/hickey: Permission denied", try input "chmod u+x ~/hickey" first and then execute the programe.
 
 # Output
 
