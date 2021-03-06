@@ -2,7 +2,7 @@
 
 This is the software HiCKey for detecting TAD boundaries and their hierarchical strucutre in HiC data. For the details of our methodology, please refer to "Decipher hierarchical organization of topologically associated domains through change-point testing". This software package was compiled by Visual C++ and GNU C++14. It contains 1 header file: "HiCKey.h"; 2 source files: "HiCKey.cpp" and "main.cpp". The compiled application are "HiCKey.exe" for Windows and "hickey" for Linux.
 
-# Examples:
+# Examples
 
 There are four sample HiC datasets in the folder "examples".
 
@@ -14,11 +14,11 @@ There are four sample HiC datasets in the folder "examples".
 
 "samp2n.txt" is the hierarchical TADs example demonstrated in our paper, it was produced by Forcato (2017) and normalized.
 
-# Normalization:
+# Normalization
 
 HiCKey requires normalized Hi-C matrix, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many Hi-C datasets are released in this form. Otherwise we suggest a simple normalization method. Let Y = y_{ij} be raw reads, apply x_{ij} = y_{ij}/(|i-j|^a) to do the transform. the parameter 'a' should be estimated from elements close to the main diagonal where most of the power law effect pronounced.
 
-# Arguments setting:
+# Arguments setting
 
 "BrownianP.txt" is the simulated distribution of our test statistic, "arguments.txt" is arguments setting. They are essential for every analysis.
 
