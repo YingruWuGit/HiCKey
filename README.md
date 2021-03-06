@@ -71,28 +71,8 @@ If the terminal shows "bash: ~/hickey: Permission denied", try input "chmod u+x 
 
 # Output
 
-For the above example the output file would have name "nijchr16_output.txt" located in the same folder as the dataset file "nijchr16.txt". The output file has three columns:
+For Hi-C matrix with name "xxxx" the output file would have name "xxxx_output" in the same folder. The output file has three columns:
 
-First column is the indices for change-points (TAD boundaries).
-
-Second column is their hierarchical orders. 1 means top layer, it goes to bottom layer as the order increases (as explained in our paper). If the "hv" argument was ommited when you run the program, then all the orders would be 1.
-
-Third column is the p-values of the boundaries.
-
-# Format of list form datasets
-
-Sometimes list form Hi-C dataset files are indexed by their resolution like the folowing 50k resolution data. The first column is row indices, second column is column indices and third column is count reads.
-
-0 0 16.0
-
-0 50000 4.0
-
-50000 150000  5.0
-
-User should first divide the row and column indices by their resolution, making it looks like the following tab separated file.
-
-0	0	16.0
-
-0	1	4.0
-
-1	3	5.0
+The first column is the locations of change-points (start point of a TAD). \
+The second column is their hierarchical orders. '1' means top layer, it goes to bottom layer as the order increases (as explained in our paper). If the 6th line in "arguments.txt" is '0', then all orders would be '1'. \
+The third column is the p-values of the change-points.
