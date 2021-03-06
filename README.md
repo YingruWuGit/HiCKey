@@ -73,6 +73,8 @@ If the terminal shows "bash: ~/hickey: Permission denied", try input "chmod u+x 
 
 For Hi-C matrix with name "xxxx" the output file would have name "xxxx_output" in the same folder. The output file has three columns:
 
-The first column is the locations of change-points (start point of a TAD). \
-The second column is their hierarchical orders. '1' means top layer, it goes to bottom layer as the order increases (as explained in our paper). If the 6th line in "arguments.txt" is '0', then all orders would be '1'. \
+The first column is the locations of change-points (start point of a TAD).
+
+The second column is their hierarchical orders. '1' means top layer, it goes to bottom layer as the order increases (as explained in our paper). If the 6th line in "arguments.txt" is '0', then all orders would be '1'.
+
 The third column is the p-values of the change-points.
