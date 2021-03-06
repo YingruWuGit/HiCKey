@@ -20,9 +20,9 @@ HiCKey requires normalized Hi-C matrix, that the effect of power law decay remov
 
 # Arguments setting
 
-"BrownianP.txt" is the simulated distribution of our test statistic, "arguments.txt" is arguments setting. They are essential for every analysis.
+"BrownianP.txt" is the simulated distribution of our test statistic, which is always needed.
 
-You need to specify 6 arguments in the file "arguments.txt"
+You need to specify 6 arguments in the file "arguments_HiCKey.txt" or "arguments_hickey".
 
 1st line is the path and name of Hi-C matrix: ~/xxxx \
 2nd line is the path and name of "BrownianP": ~/BrownianP.txt \
@@ -61,11 +61,11 @@ C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt \
 # Usage
 After you download HiCKey.exe or hickey (or download all 3 code files and compile), windows users can open Command Prompt, change drive to the folder of HiCKey.exe then type in:
 
-HiCKey ~/arguments.txt
+HiCKey ~/arguments_HiCKey.txt
 
 Linux users can type in:
 
-~/hickey ~/arguments.txt
+~/hickey ~/arguments_hickey
 
 If the terminal shows "bash: ~/hickey: Permission denied", try input "chmod u+x ~/hickey" first and then execute the programe.
 
