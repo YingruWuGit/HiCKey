@@ -4,7 +4,7 @@ This is the software HiCKey for detecting TAD boundaries and their hierarchical 
 
 # Examples:
 
-There are three sample HiC datasets in the folder "examples".
+There are four sample HiC datasets in the folder "examples".
 
 "nijchr16.txt" is a Human ES Cell Normalized Hi-C Matrix downloaded from Ren Lab (http://chromosome.sdsc.edu/mouse/hi-c/download.html).
 
@@ -20,7 +20,7 @@ HiCKey requires normalized Hi-C matrix, that the effect of power law decay remov
 
 # Usage:
 
-"BrownianP.txt" is the simulated distribution of our test statistic, which is essential for every analysis.
+"BrownianP.txt" is the simulated distribution of our test statistic, "arguments.txt" contains the parameter settings. They are essential for every analysis.
 
 To run the program, you need 5 arguments as follows.
 
