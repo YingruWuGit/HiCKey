@@ -24,14 +24,10 @@ HiCKey requires normalized Hi-C matrix, that the effect of power law decay remov
 
 You need to specify 6 arguments in the file "arguments.txt"
 
-1st line is the path and name of Hi-C matrix: ~/xxxx
-
-2nd line is the path and name of "BrownianP": ~/BrownianP.txt
-
-3rd line is Hi-C matrix form and resolution. If it is matrix form then input 'm', if it is list form then input resolution.
-
-4st line is the lower bound of TAD size.
-
+1st line is the path and name of Hi-C matrix: ~/xxxx \
+2nd line is the path and name of "BrownianP": ~/BrownianP.txt \
+3rd line is Hi-C matrix form and resolution. If it is matrix form then input 'm', if it is list form then input resolution. \
+4st line is the lower bound of TAD size. \
 5st line is alpha0 to test if a change-point is significant.
 
 6st line is alpha1 for identifying nested TADs. If it is 0, then HiCKey will not output hierarchical orders.
