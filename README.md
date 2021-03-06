@@ -10,8 +10,7 @@ There are three sample HiC datasets in the folder "examples".
 
 "nijchr16_list.txt" is the list form of the matrix, Tab separated, containing only nonzero reads with their row and column indices (0 based).
 
-"chr21_50kb.RAWobserved" is one of the HiC matrices produced by Rao (2015) and downloaded from the Gene Expression Omnibus (GEO) database (http://www.ncbi.nlm.
-nih.gov/geo/).
+"chr21_50kb.RAWobserved" is one of the HiC matrices produced by Rao (2015) and downloaded from the Gene Expression Omnibus (GEO) database (http://www.ncbi.nlm.nih.gov/geo/).
 
 # Normalization:
 
