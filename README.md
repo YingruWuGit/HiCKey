@@ -18,24 +18,27 @@ There are four sample HiC datasets in the folder "examples".
 
 HiCKey requires normalized Hi-C matrix, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many Hi-C datasets are released in this form. Otherwise we suggest a simple normalization method. Let Y = y_{ij} be raw reads, apply x_{ij} = y_{ij}/(|i-j|^a) to do the transform. the parameter 'a' should be estimated from elements close to the main diagonal where most of the power law effect pronounced.
 
-# Usage:
+# Arguments setting:
 
-"BrownianP.txt" is the simulated distribution of our test statistic, "arguments.txt" contains the parameter settings. They are essential for every analysis.
+"BrownianP.txt" is the simulated distribution of our test statistic, "arguments.txt" is arguments setting. They are essential for every analysis.
 
-To run the program, you need to specify 6 arguments in the file "arguments.txt"
+You need to specify 6 arguments in the file "arguments.txt"
 
-1st line is Hi-C matrix path and name: ~/nijchr16.txt
+1st line is the path and name of Hi-C matrix: ~/xxxx
 
-2nd line is path and name of "BrownianP": ~/BrownianP.txt
+2nd line is the path and name of "BrownianP": ~/BrownianP.txt
 
-3rd line is Hi-C matrix form. If it is matrix form then input 'm', if it is list form then input resolution.
+3rd line is Hi-C matrix form and resolution. If it is matrix form then input 'm', if it is list form then input resolution.
 
-4st line is the lower bound of TAD size
+4st line is the lower bound of TAD size.
 
-5st line is alpha0 to test if a change-point is significant
+5st line is alpha0 to test if a change-point is significant.
 
-6st line is alpha1 for identifying nested TAD. If input 0 then HiCKey will not output hierarchical orders.
+6st line is alpha1 for identifying nested TADs. If it is 0, then HiCKey will not output hierarchical orders.
 
+
+
+# Usage
 After you download HiCKey.exe or hickey (or download all 3 code files and compile), windows users can open Command Prompt, change drive to the folder of HiCKey.exe then type in:
 
 HiCKey ~/arguments.txt
