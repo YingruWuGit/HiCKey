@@ -36,8 +36,16 @@ You need to specify 6 arguments in the file "arguments.txt"
 
 6st line is alpha1 for identifying nested TADs. If it is 0, then HiCKey will not output hierarchical orders.
 
-aaa \
-bbb
+For example, "nijchr16.txt" can be:
+
+C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16.txt \
+C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt \
+m \
+5 \
+0.05 \
+0.00005
+
+"nijchr16_list.txt" can be:
 
 # Usage
 After you download HiCKey.exe or hickey (or download all 3 code files and compile), windows users can open Command Prompt, change drive to the folder of HiCKey.exe then type in:
