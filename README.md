@@ -28,8 +28,7 @@ You need to specify 6 arguments in the file "arguments.txt"
 2nd line is the path and name of "BrownianP": ~/BrownianP.txt \
 3rd line is Hi-C matrix form and resolution. If it is matrix form then input 'm', if it is list form then input resolution. \
 4st line is the lower bound of TAD size. \
-5st line is alpha0 to test if a change-point is significant.
-
+5st line is alpha0 to test if a change-point is significant. \
 6st line is alpha1 for identifying nested TADs. If it is 0, then HiCKey will not output hierarchical orders.
 
 For example, "nijchr16.txt" can be:
@@ -42,6 +41,22 @@ m \
 0.00005
 
 "nijchr16_list.txt" can be:
+
+C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16_list.txt \
+C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt \
+1 \
+5 \
+0.05 \
+0.00005
+
+"chr21_50kb.RAWobserved" can be:
+
+C:/Users/Yingru/Source/Repos/HiCKey/examples/chr21_50kb.RAWobserved \
+C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt \
+50000 \
+5 \
+0.05 \
+0.00005
 
 # Usage
 After you download HiCKey.exe or hickey (or download all 3 code files and compile), windows users can open Command Prompt, change drive to the folder of HiCKey.exe then type in:
