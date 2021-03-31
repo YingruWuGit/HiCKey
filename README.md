@@ -12,7 +12,7 @@ There are four sample HiC datasets in the folder "examples".
 
 "chr21_50kb.RAWobserved" is one of the unnormalized HiC matrices produced by Rao (2015) and downloaded from the Gene Expression Omnibus (GEO) database (http://www.ncbi.nlm.nih.gov/geo/).
 
-"samp2n.txt" is the hierarchical TADs example demonstrated in our paper, it was produced by Forcato (2017) and normalized.
+"samp_nested.txt" is the hierarchical TADs example demonstrated in our paper, it was produced by Forcato (2017). We normalized it upper triangular part (see the following section).
 
 # Normalization
 
