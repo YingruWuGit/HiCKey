@@ -59,7 +59,7 @@ C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt \
 0.00005
 
 # Usage
-Download HiCKey.exe (or hickey or compile yourself), arguments_HiCKey.txt (arguments_hickey), BrownianP.txt and data.
+Download HiCKey.exe (or hickey for Linux), arguments_HiCKey.txt (arguments_hickey), BrownianP.txt and dataset.
 
 Modify the parameters in arguments_HiCKey.txt (arguments_hickey).
 
@@ -67,11 +67,11 @@ For Windows user, open Command Prompt, change drive to the folder containing HiC
 
 HiCKey arguments_HiCKey.txt
 
-For Linux user, type in:
+For Linux user open Terminal, change drive and type in:
 
-hickey arguments_hickey
+./hickey ./arguments_hickey
 
-If the terminal shows "bash: ~/hickey: Permission denied", try input "chmod u+x ~/hickey" first and then execute the programe.
+If it shows "bash: ./hickey: Permission denied", try input "chmod u+x ./hickey" first and then execute the programe.
 
 # Output
 
