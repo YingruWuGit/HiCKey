@@ -22,7 +22,7 @@ HiCKey requires normalized Hi-C matrix, that the effect of power law decay remov
 
 "BrownianP.txt" is the simulated distribution of our test statistic, which is always needed.
 
-You need to specify 6 arguments in the file "arguments_HiCKey.txt" or "arguments_hickey".
+User needs to specify 6 arguments in the file "arguments_HiCKey.txt" or "arguments_hickey".
 
 1st line is the path and name of Hi-C matrix: ~/xxxx \
 2nd line is the path and name of "BrownianP": ~/BrownianP.txt \
