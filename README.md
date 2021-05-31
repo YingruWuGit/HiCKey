@@ -75,7 +75,7 @@ For Linux user open Terminal, change directory and input:
 ```
 ./hickey ./arguments_hickey
 ```
-If it shows ```bash: ./hickey: Permission denied```, try input ```chmod u+x ./hickey``` first and then execute the programe.
+If it shows ```bash: ./hickey: Permission denied```, try input ```chmod u+x ./hickey``` first and then execute the program.
 
 # Output
 
