@@ -35,7 +35,7 @@ User needs to specify 6 arguments in the file "arguments_HiCKey.txt" or "argumen
 5th line is alpha0 to test if a change-point is significant. \
 6th line is alpha1 for identifying nested TADs. If it is 0, then HiCKey will not output hierarchical orders.
 
-For example, if HiC data is "nijchr16.txt", then "arguments_HiCKey.txt" can be:
+For example, if HiC data is "nijchr16.txt", then the "arguments_HiCKey.txt" can be:
 ```
 C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16.txt
 C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt
@@ -44,7 +44,7 @@ m
 0.05
 0.00005
 ```
-If HiC data is "nijchr16_list.txt", then "arguments_HiCKey.txt" can be:
+If HiC data is "nijchr16_list.txt", then the "arguments_HiCKey.txt" can be:
 ```
 C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16_list.txt
 C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt
@@ -53,7 +53,7 @@ C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt
 0.05
 0.00005
 ```
-If HiC data is "chr21_50kb.RAWobserved", then "arguments_HiCKey.txt" can be:
+If HiC data is "chr21_50kb.RAWobserved", then the "arguments_HiCKey.txt" can be:
 ```
 C:/Users/Yingru/Source/Repos/HiCKey/examples/chr21_50kb.RAWobserved
 C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt
