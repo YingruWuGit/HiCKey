@@ -20,48 +20,48 @@ There are four sample HiC datasets in the folder "examples".
 
 # Normalization
 
-HiCKey requires normalized HiC matrix, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many HiC datasets are released in that form. Otherwise we suggest a simple normalization method. Let <img src="https://render.githubusercontent.com/render/math?math=Y=y_{ij}"> be raw reads, apply <img src="https://render.githubusercontent.com/render/math?math=x_{ij}=y_{ij}/(|i-j|^a)"> to do the transform. the parameter <img src="https://render.githubusercontent.com/render/math?math=a)"> should be estimated from elements close to the main diagonal where most of the power law effect pronounce.
+HiCKey requires normalized HiC matrix, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many HiC datasets are released in that form. Otherwise we suggest a simple normalization method. Let <img src="https://render.githubusercontent.com/render/math?math=Y=y_{ij}"> be raw reads, apply <img src="https://render.githubusercontent.com/render/math?math=x_{ij}=y_{ij}/(|i-j|^a)"> to do the transform. the parameter <img src="https://render.githubusercontent.com/render/math?math=a"> should be estimated from elements close to the main diagonal where most of the power law effect pronounce.
 
 # Arguments setting
 
-"BrownianP.txt" is the simulated distribution of our test statistic, which is always needed.
+"BrownianP.txt" is the simulated distribution of our test statistic, which is needed in each run.
 
 User needs to specify 6 arguments in the file "arguments_HiCKey.txt" or "arguments_hickey".
 
-1st line is the path and name of Hi-C matrix: ~/xxxx \
+1st line is the path and name of HiC matrix: ~/xxxx \
 2nd line is the path and name of "BrownianP": ~/BrownianP.txt \
-3rd line is Hi-C matrix form and resolution. If it is matrix form then input 'm', if it is list form then input resolution. \
-4st line is the lower bound of TAD size. \
-5st line is alpha0 to test if a change-point is significant. \
-6st line is alpha1 for identifying nested TADs. If it is 0, then HiCKey will not output hierarchical orders.
+3rd line is HiC matrix form and resolution. If it is matrix form then input 'm', if it is list form then input resolution. \
+4th line is the lower bound of TAD size. \
+5th line is alpha0 to test if a change-point is significant. \
+6th line is alpha1 for identifying nested TADs. If it is 0, then HiCKey will not output hierarchical orders.
 
 For example, "nijchr16.txt" can be:
-
+```
 C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16.txt \
 C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt \
 m \
 5 \
 0.05 \
 0.00005
-
+```
 "nijchr16_list.txt" can be:
-
+```
 C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16_list.txt \
 C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt \
 1 \
 5 \
 0.05 \
 0.00005
-
+```
 "chr21_50kb.RAWobserved" can be:
-
+```
 C:/Users/Yingru/Source/Repos/HiCKey/examples/chr21_50kb.RAWobserved \
 C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt \
 50000 \
 5 \
 0.05 \
 0.00005
-
+```
 # Usage
 Download HiCKey.exe (or hickey for Linux), arguments_HiCKey.txt (arguments_hickey), BrownianP.txt and dataset.
 
