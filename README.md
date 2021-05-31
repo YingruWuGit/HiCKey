@@ -20,7 +20,7 @@ There are four sample HiC datasets in the folder "examples".
 
 # Normalization
 
-HiCKey requires normalized HiC matrix, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many Hi-C datasets are released in this form. Otherwise we suggest a simple normalization method. Let <img src="https://render.githubusercontent.com/render/math?math=Y = y_{ij}"> be raw reads, apply x_{ij} = y_{ij}/(|i-j|^a) to do the transform. the parameter 'a' should be estimated from elements close to the main diagonal where most of the power law effect pronounced.
+HiCKey requires normalized HiC matrix, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many Hi-C datasets are released in this form. Otherwise we suggest a simple normalization method. Let <img src="https://render.githubusercontent.com/render/math?math=Y=y_{ij}"> be raw reads, apply <img src="https://render.githubusercontent.com/render/math?math=x_{ij}=y_{ij}/(|i-j|^a)"> to do the transform. the parameter 'a' should be estimated from elements close to the main diagonal where most of the power law effect pronounced.
 
 # Arguments setting
 
