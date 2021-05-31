@@ -4,7 +4,7 @@ This is the software HiCKey for detecting TAD boundaries and their hierarchical 
 
 # R package
 
-In another repository "HiCKeyR" https://github.com/YingruWuGit/HiCKeyR we have the R package of HiCKey. The R package was constructed by Rcpp with the same C++ code as here. 
+In another repository "HiCKeyR" https://github.com/YingruWuGit/HiCKeyR we have the R package of HiCKey. The R package was constructed by Rcpp with the same C++ code as here. There is a new function in the R package that returns a submatrix of the Hi-C matrix, so user can draw heatmap.
 
 # Examples
 
