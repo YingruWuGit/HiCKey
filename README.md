@@ -63,7 +63,7 @@ C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt
 0.00005
 ```
 # Usage
-Download HiCKey.exe (or hickey for Linux), arguments_HiCKey.txt (arguments_hickey), BrownianP.txt and prepare your HiC dataset.
+Download HiCKey.exe (or hickey for Linux), arguments_HiCKey.txt (arguments_hickey), BrownianP.txt and prepare your HiC data file.
 
 Modify the arguments in arguments_HiCKey.txt (arguments_hickey).
 
@@ -79,10 +79,10 @@ If it shows ```bash: ./hickey: Permission denied```, try input ```chmod u+x ./hi
 
 # Output
 
-For Hi-C matrix with name "xxxx" the output file would have name "xxxx_output" in the same folder. The output file has three columns:
+For HiC data file with name "xxxx" the output file would be named "xxxx_output" in the same directory. The output file has three columns:
 
-The first column is the locations of change-points (start point of a TAD).
+The first column is the locations of change-points (start of a TAD).
 
-The second column is their hierarchical orders. '1' means top layer, it goes to bottom layer as the order increases (as explained in our paper). If the 6th line in "arguments.txt" is '0', then all orders would be '1'.
+The second column is their hierarchical orders. '1' means top layer, it goes to bottom layer as the order increases (as explained in our paper). If the 6th line in the "arguments_HiCKey.txt" is 0, then all orders would be '1'.
 
 The third column is the p-values of the change-points.
