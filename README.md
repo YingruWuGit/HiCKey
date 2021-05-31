@@ -37,29 +37,29 @@ User needs to specify 6 arguments in the file "arguments_HiCKey.txt" or "argumen
 
 For example, "nijchr16.txt" can be:
 ```
-C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16.txt \
-C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt \
-m \
-5 \
-0.05 \
+C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16.txt
+C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt
+m
+5
+0.05
 0.00005
 ```
 "nijchr16_list.txt" can be:
 ```
-C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16_list.txt \
-C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt \
-1 \
-5 \
-0.05 \
+C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16_list.txt
+C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt
+1
+5
+0.05
 0.00005
 ```
 "chr21_50kb.RAWobserved" can be:
 ```
-C:/Users/Yingru/Source/Repos/HiCKey/examples/chr21_50kb.RAWobserved \
-C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt \
-50000 \
-5 \
-0.05 \
+C:/Users/Yingru/Source/Repos/HiCKey/examples/chr21_50kb.RAWobserved
+C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt
+50000
+5
+0.05
 0.00005
 ```
 # Usage
