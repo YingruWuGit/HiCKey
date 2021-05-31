@@ -2,6 +2,10 @@
 
 This is the software HiCKey for detecting TAD boundaries and their hierarchical strucutre in HiC data. For the details of our methodology, please refer to "Decipher hierarchical organization of topologically associated domains through change-point testing". This software package was compiled by Visual C++ and GNU C++14. It contains 1 header file: "HiCKey.h"; 2 source files: "HiCKey.cpp" and "main.cpp". The compiled application are "HiCKey.exe" for Windows and "hickey" for Linux.
 
+# R package
+
+In another repository "HiCKeyR" https://github.com/YingruWuGit/HiCKeyR we have the R package of HiCKey. The R package was constructed by Rcpp with the same C++ code as here. 
+
 # Examples
 
 There are four sample HiC datasets in the folder "examples".
