@@ -67,11 +67,11 @@ Download HiCKey.exe (or hickey for Linux), arguments_HiCKey.txt (arguments_hicke
 
 Modify the arguments in arguments_HiCKey.txt (arguments_hickey).
 
-For Windows user, open Command Prompt, change directory to the folder containing HiCKey.exe and arguments_HiCKey.txt, then type in:
+For Windows user, open Command Prompt, change directory to the folder containing HiCKey.exe and arguments_HiCKey.txt, then input:
 ```
 HiCKey arguments_HiCKey.txt
 ```
-For Linux user open Terminal, change directory and type in:
+For Linux user open Terminal, change directory and input:
 ```
 ./hickey ./arguments_hickey
 ```
