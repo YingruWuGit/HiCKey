@@ -4,7 +4,7 @@ This is the software HiCKey for detecting TAD boundaries and their hierarchical 
 
 # R package
 
-In another repository "HiCKeyR" https://github.com/YingruWuGit/HiCKeyR we have the R package of HiCKey. The R package was constructed by Rcpp with the same C++ code as here. There is a new function in the R package that returns a submatrix of the Hi-C matrix, so user can draw a heatmap to show the segmentation result.
+In another repository "HiCKeyR" (https://github.com/YingruWuGit/HiCKeyR) we have the R package of HiCKey. The R package was constructed by Rcpp with the same C++ code here. There is a new function in the R package that returns a submatrix of the HiC matrix, so user can draw a heatmap to show the segmentation result.
 
 # Examples
 
@@ -20,7 +20,8 @@ There are four sample HiC datasets in the folder "examples".
 
 # Normalization
 
-HiCKey requires normalized Hi-C matrix, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many Hi-C datasets are released in this form. Otherwise we suggest a simple normalization method. Let Y = y_{ij} be raw reads, apply x_{ij} = y_{ij}/(|i-j|^a) to do the transform. the parameter 'a' should be estimated from elements close to the main diagonal where most of the power law effect pronounced.
+HiCKey requires normalized HiC matrix, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many Hi-C datasets are released in this form. Otherwise we suggest a simple normalization method. Let ```math
+Y = y_{ij}``` be raw reads, apply x_{ij} = y_{ij}/(|i-j|^a) to do the transform. the parameter 'a' should be estimated from elements close to the main diagonal where most of the power law effect pronounced.
 
 # Arguments setting
 
