@@ -12,9 +12,9 @@ There are four sample HiC datasets in the folder "examples".
 
 "nijchr16.txt" is a Human ES Cell Normalized Hi-C Matrix downloaded from Ren Lab (http://chromosome.sdsc.edu/mouse/hi-c/download.html).
 
-"nijchr16_list.txt" is the list form of the matrix, Tab separated, containing only nonzero reads with their row and column indices (0 based).
+"nijchr16_list.txt" is the list form of the matrix, Tab separated, containing only nonzero reads with their indices (0 based). The first column is row index, the second column is column index and the thrid column is count read.
 
-"chr21_50kb.RAWobserved" is one of the unnormalized HiC matrices produced by Rao (2015) and downloaded from the Gene Expression Omnibus (GEO) database (http://www.ncbi.nlm.nih.gov/geo/).
+"chr21_50kb.RAWobserved" is one of the unnormalized HiC matrices produced by Rao (2015) and downloaded from the Gene Expression Omnibus (GEO) database (http://www.ncbi.nlm.nih.gov/geo/). It is in list form similar with "nijchr16_list.txt", just its indices are multiplied by resolution.
 
 "samp_nested.txt" is the Figure 4 case b in our paper, it was produced by Forcato (2017). We normalized its upper triangular part (see the following section).
 
