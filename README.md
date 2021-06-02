@@ -88,3 +88,9 @@ The first column is the locations of change-points (start of a TAD).
 The second column is their hierarchical orders. '1' means top layer, it goes to bottom layer as the order increases (as explained in our paper). If the 6th line in the "arguments_HiCKey.txt" is 0, then all orders would be '1'.
 
 The third column is the p-values of the change-points.
+
+# References
+
+Rao SSP, Huntley MH, Durand N, Stamenova EK, Bochkov I, Robinson JT, et al. A 3D map of the human genome at kilobase resolution reveals principles of chromatin looping. Cell. 2015;159(7):1665–80.
+
+Forcato M, Nicoletti C, Pal K, Livi C, Ferrari F, Bicciato S. Comparison of computational methods for Hi-C data analysis. Nat Methods. 2017;14:679–85.
