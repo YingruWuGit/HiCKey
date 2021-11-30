@@ -1,5 +1,5 @@
-C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16.txt
-C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt
+C:/Users/Andrew/Documents/GitHub/HiCKey/examples/nijchr16.txt
+C:/Users/Andrew/Documents/GitHub/HiCKey/BrownianP.txt
 m
 5
 0.05
