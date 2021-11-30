@@ -37,8 +37,8 @@ User needs to specify 6 arguments in the file "arguments_HiCKey.txt" or "argumen
 
 For example, if HiC data is "nijchr16.txt", then the "arguments_HiCKey.txt" can be:
 ```
-C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16.txt
-C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt
+C:/Users/Andrew/Documents/GitHub/HiCKey/examples/nijchr16.txt
+C:/Users/Andrew/Documents/GitHub/HiCKey/BrownianP.txt
 m
 5
 0.05
@@ -47,7 +47,7 @@ m
 If HiC data is "nijchr16_list.txt", then the "arguments_HiCKey.txt" can be:
 ```
 C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16_list.txt
-C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt
+C:/Users/Yingru/Source/Repos/HiCKey/BrownianP.txt
 1
 5
 0.05
