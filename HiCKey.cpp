@@ -2,6 +2,9 @@
 
 Hic::Hic(std::string fileName, std::string fileNameP, int in_form, int cv, double sv, double hv) : _fileName{ fileName }, _fileNameP{ fileNameP }, _in_form{ in_form }, _cv{ cv }, _sv{ sv }, _hv{ hv }, _countMatrix{}, _brownianP{}, _cpI{}, _cpS{}, _pValue{} {
 	std::ifstream fin(_fileName);
+	if (!fin.good()) {
+		std::cout << "Error: HiC data file not found" << std::endl;
+	}
 	std::string newLine = "";
 	double newElement = 0.0;
 	//read input as list
@@ -23,6 +26,7 @@ Hic::Hic(std::string fileName, std::string fileNameP, int in_form, int cv, doubl
 				_countMatrix[rn].emplace_back(cn, newElement);
 			}
 		}
+		std::cout << "HiC matrix size: " << r << '*' << r << std::endl;
 	}
 	//read input as matrix
 	else {
@@ -42,6 +46,7 @@ Hic::Hic(std::string fileName, std::string fileNameP, int in_form, int cv, doubl
 				++c;
 			}
 		}
+		std::cout << "HiC matrix size: " << r + 1 << '*' << r + 1 << std::endl;
 	}
 	fin.close();
 	//initialize cpI and pValue, add a dummy element at the end
@@ -53,6 +58,9 @@ Hic::Hic(std::string fileName, std::string fileNameP, int in_form, int cv, doubl
 	//read BrownianP
 	_brownianP.reserve(1000000);
 	fin.open(_fileNameP, std::ifstream::in);
+	if (!fin.good()) {
+		std::cout << "Error: BrownianP.txt not found" << std::endl;
+	}
 	std::getline(fin, newLine);
 	std::istringstream sin2(newLine);
 	while (sin2 >> newElement) {
@@ -333,6 +341,7 @@ void Hic::outPut() {
 		}
 	}
 	fout.close();
+	std::cout << "results were saved in " << fileName3 << std::endl;
 	return;
 }
 

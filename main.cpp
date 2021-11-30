@@ -10,6 +10,14 @@ int main(int argc, char* argv[]) {
 	std::getline(fin, arg5);
 	std::getline(fin, arg6);
 	fin.close();
+
+	if (arg3 != "m" && std::stoi(arg3) <= 0) {
+		std::cout << "Error: invalid argument" << std::endl;
+	}
+	if (std::stoi(arg4) <= 0 || std::stof(arg5) <= 0 || std::stof(arg6) < 0) {
+		std::cout << "Error: invalid argument" << std::endl;
+	}
+
 	Hic sample(arg1, arg2, ((arg3 == "m") ? 0 : std::stoi(arg3)), std::stoi(arg4), std::stof(arg5), std::stof(arg6));
 	sample.topDown();
 	sample.pruning();
