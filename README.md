@@ -46,8 +46,8 @@ m
 ```
 If HiC data is "nijchr16_list.txt", then the "arguments_HiCKey.txt" can be:
 ```
-C:/Users/Yingru/Source/Repos/HiCKey/examples/nijchr16_list.txt
-C:/Users/Yingru/Source/Repos/HiCKey/BrownianP.txt
+C:/Users/Andrew/Documents/GitHub/HiCKey/examples/nijchr16_list.txt
+C:/Users/Andrew/Documents/GitHub/HiCKey/BrownianP.txt
 1
 5
 0.05
@@ -55,8 +55,8 @@ C:/Users/Yingru/Source/Repos/HiCKey/BrownianP.txt
 ```
 If HiC data is "chr21_50kb.RAWobserved", then the "arguments_HiCKey.txt" can be:
 ```
-C:/Users/Yingru/Source/Repos/HiCKey/examples/chr21_50kb.RAWobserved
-C:/Users/Yingru/Source/Repos/HiCKey/examples/BrownianP.txt
+C:/Users/Andrew/Documents/GitHub/HiCKey/examples/chr21_50kb.RAWobserved
+C:/Users/Andrew/Documents/GitHub/HiCKey/BrownianP.txt
 50000
 5
 0.05
