@@ -27,13 +27,13 @@ HiCKey requires normalized HiC data, that the effect of power law decay removed.
 
 # Arguments setting
 
-- "BrownianP.txt" is the simulated distribution of our test statistic, which is needed in each run.
+- "BrownianP.txt" is the simulated distribution of our test statistic, which is needed in each analysis.
 
 User needs to specify 6 arguments in the file "arguments_HiCKey.txt" (for Windows) or "arguments_hickey" (for Linux).
 
 - 1st line is the path and name of HiC data
-- 2nd line is the path and name of "BrownianP": ~/BrownianP.txt
-- 3rd line is HiC data form and resolution. If it is in matrix form then input 'm', if it is in list form then input the resolution
+- 2nd line is the path and name of "BrownianP.txt"
+- 3rd line is HiC data form or resolution. If it is in matrix form then input 'm', if it is in list form then input the resolution
 - 4th line is the lower bound of TAD size
 - 5th line is alpha0 to test if a boundary (change-point) is significant
 - 6th line is alpha1 for identifying nested TADs. If it is 0, then HiCKey will not output hierarchical orders.
@@ -56,7 +56,7 @@ C:/Users/Andrew/Documents/GitHub/HiCKey/BrownianP.txt
 0.05
 0.00005
 ```
-Note: the resolution should be 1 in this case.
+Note: the resolution should be 1 if the list form HiC data was derived form matrix form.
 
 If HiC data is "chr21_50kb.RAWobserved", then the "arguments_HiCKey.txt" can be:
 ```
@@ -70,7 +70,7 @@ C:/Users/Andrew/Documents/GitHub/HiCKey/BrownianP.txt
 
 # Usage
 
-Download HiCKey.exe (or hickey for Linux), arguments_HiCKey.txt (or arguments_hickey), BrownianP.txt and prepare your HiC data file.
+Download HiCKey.exe (hickey for Linux, or compile it), arguments_HiCKey.txt (or arguments_hickey), BrownianP.txt and prepare your HiC data file.
 
 Modify the arguments in arguments_HiCKey.txt (or arguments_hickey).
 
@@ -82,7 +82,7 @@ For Linux user open Terminal, change directory and input:
 ```
 ./hickey ./arguments_hickey
 ```
-If it shows ```bash: ./hickey: Permission denied```, try input ```chmod u+x ./hickey``` first and then execute the program.
+If it shows ```bash: ./hickey: Permission denied```, try ```chmod u+x ./hickey``` first and then execute the program.
 
 # Output
 
