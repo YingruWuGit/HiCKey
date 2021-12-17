@@ -23,7 +23,7 @@ There are four sample HiC datasets in the folder "examples".
 
 # Normalization
 
-HiCKey requires normalized HiC matrix, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many HiC datasets are released in that form. Otherwise we suggest a simple normalization method. Let <img src="https://render.githubusercontent.com/render/math?math=y_{ij}"> be raw reads, apply <img src="https://render.githubusercontent.com/render/math?math=x_{ij}=y_{ij}/(|i-j|^a)"> to do the transform. the parameter <img src="https://render.githubusercontent.com/render/math?math=a"> should be estimated from elements close to the main diagonal where most of the power law effect pronounce.
+HiCKey requires normalized HiC data, that the effect of power law decay removed. Usually the observed over expected precedure is preferred, as many HiC datasets are released in that form. Otherwise we suggest a simple normalization method. Let <img src="https://render.githubusercontent.com/render/math?math=y_{ij}"> be raw reads, apply <img src="https://render.githubusercontent.com/render/math?math=x_{ij}=y_{ij}/(|i-j|^a)"> to do the transform. the parameter <img src="https://render.githubusercontent.com/render/math?math=a"> should be estimated from reads close to the main diagonal of HiC matrix where most of the power law effect pronounce.
 
 # Arguments setting
 
