@@ -17,7 +17,7 @@ There are four sample HiC datasets in the folder "examples".
 
 - "nijchr16_list.txt" is the list form of the matrix, Tab separated, containing only nonzero reads with their indices (0 based). The first column is row index, the second column is column index and the thrid column is count read.
 
-- "chr21_50kb.RAWobserved" is one of the unnormalized HiC matrices produced by Rao (2015) and downloaded from the Gene Expression Omnibus (GEO) database (http://www.ncbi.nlm.nih.gov/geo/). It is in list form similar with "nijchr16_list.txt", just its indices are multiplied by resolution.
+- "chr21_50kb.RAWobserved" is one of the unnormalized HiC matrices with resolution 50k produced by Rao (2015) and downloaded from the Gene Expression Omnibus (GEO) database (http://www.ncbi.nlm.nih.gov/geo/). It is in list form similar with "nijchr16_list.txt", just its indices are multiplied by resolution.
 
 - "samp_nested.txt" is the Figure 4 case b in our paper, it was produced by Forcato (2017). We normalized its upper triangular part (see the following section).
 
@@ -70,9 +70,9 @@ C:/Users/Andrew/Documents/GitHub/HiCKey/BrownianP.txt
 
 # Usage
 
-Download HiCKey.exe (or hickey for Linux), arguments_HiCKey.txt (arguments_hickey), BrownianP.txt and prepare your HiC data file.
+Download HiCKey.exe (or hickey for Linux), arguments_HiCKey.txt (or arguments_hickey), BrownianP.txt and prepare your HiC data file.
 
-Modify the arguments in arguments_HiCKey.txt (arguments_hickey).
+Modify the arguments in arguments_HiCKey.txt (or arguments_hickey).
 
 For Windows user, open Command Prompt, change directory to the folder containing HiCKey.exe and arguments_HiCKey.txt, then input:
 ```
@@ -88,11 +88,11 @@ If it shows ```bash: ./hickey: Permission denied```, try input ```chmod u+x ./hi
 
 For HiC data file with name "xxxx" the output file would be named as "xxxx_output" in the same directory. The output file has three columns:
 
-The first column is the locations of change-points (start of a TAD).
+The first column is the locations of boundaries (start of a TAD).
 
-The second column is their hierarchical orders. '1' means top layer, it goes to bottom layer as the order increases (as explained in our paper). If the 6th line in the "arguments_HiCKey.txt" is 0, then all orders would be '1'.
+The second column is hierarchical orders. '1' indicates top (outer) layer, it goes to bottom layer as the order increases, as explained in our paper. If the 6th line in the "arguments_HiCKey.txt" is 0, then all orders would be '1'.
 
-The third column is the p-values of the change-points.
+The third column is the p-values of the boundaries.
 
 # References
 
