@@ -1,6 +1,6 @@
 # HiCKey
 
-This is HiCKey for detecting TAD boundaries and their hierarchical structure in HiC data. For the details of our methodology, please refer to ```Haipeng Xing, Yingru Wu, Michael Q Zhang, Yong Chen, Deciphering hierarchical organization of topologically associated domains through change-point testing. BMC Bioinformatics 22, 183 (2021)``` (https://rdcu.be/clEFG). One of the advantages of HiCKey is that it outputs p-values of the detected boundaries.
+This is HiCKey for detecting TAD boundaries and their hierarchical structure in HiC data. For the details of our methodology, please refer to ```Deciphering hierarchical organization of topologically associated domains through change-point testing. BMC Bioinformatics 22, 183 (2021)``` (https://rdcu.be/clEFG). One of the advantages of HiCKey is that it outputs p-values of the detected boundaries.
 - "HiCKey.h", "HiCKey.cpp" and "main.cpp" are source files
 - "HiCKey.exe" is the application for Windows compiled by Visual C++ under C++14 standard
 - "hickey" is the application for Linux compiled by GNU under C++14 standard
