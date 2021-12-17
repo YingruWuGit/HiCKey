@@ -29,14 +29,14 @@ HiCKey requires normalized HiC matrix, that the effect of power law decay remove
 
 - "BrownianP.txt" is the simulated distribution of our test statistic, which is needed in each run.
 
-User needs to specify 6 arguments in the file "arguments_HiCKey.txt" or "arguments_hickey".
+User needs to specify 6 arguments in the file "arguments_HiCKey.txt" (for Windows) or "arguments_hickey" (for Linux).
 
-1st line is the path and name of HiC matrix: ~/xxxx \
-2nd line is the path and name of "BrownianP": ~/BrownianP.txt \
-3rd line is HiC matrix form and resolution. If it is matrix form then input 'm', if it is list form then input resolution. \
-4th line is the lower bound of TAD size. \
-5th line is alpha0 to test if a change-point is significant. \
-6th line is alpha1 for identifying nested TADs. If it is 0, then HiCKey will not output hierarchical orders.
+- 1st line is the path and name of HiC data
+- 2nd line is the path and name of "BrownianP": ~/BrownianP.txt
+- 3rd line is HiC data form and resolution. If it is in matrix form then input 'm', if it is in list form then input the resolution
+- 4th line is the lower bound of TAD size
+- 5th line is alpha0 to test if a boundary (change-point) is significant
+- 6th line is alpha1 for identifying nested TADs. If it is 0, then HiCKey will not output hierarchical orders.
 
 For example, if HiC data is "nijchr16.txt", then the "arguments_HiCKey.txt" can be:
 ```
@@ -56,6 +56,8 @@ C:/Users/Andrew/Documents/GitHub/HiCKey/BrownianP.txt
 0.05
 0.00005
 ```
+Note: the resolution should be 1 in this case.
+
 If HiC data is "chr21_50kb.RAWobserved", then the "arguments_HiCKey.txt" can be:
 ```
 C:/Users/Andrew/Documents/GitHub/HiCKey/examples/chr21_50kb.RAWobserved
