@@ -86,9 +86,9 @@ If it shows ```bash: ./hickey: Permission denied```, try ```chmod u+x ./hickey``
 
 # Output
 
-For HiC data file with name "xxxx" the output file would be named as "xxxx_output" in the same directory. The output file has three columns:
+For HiC data file with name "xxxx", the output file would be named as "xxxx_output" in the same directory. The output file has three columns:
 
-The first column is the locations of boundaries (start of a TAD).
+The first column is the locations of boundaries (start of TADs).
 
 The second column is hierarchical orders. '1' indicates top (outer) layer, it goes to bottom layer as the order increases, as explained in our paper. If the 6th line in the "arguments_HiCKey.txt" is 0, then all orders would be '1'.
 
