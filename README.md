@@ -1,13 +1,13 @@
 # HiCKey
 
-This is HiCKey for detecting TAD boundaries and their hierarchical structure in HiC data. For the details of our methodology, please refer to ```Xing, H., Wu, Y., Zhang, M.Q. et al. Deciphering hierarchical organization of topologically associated domains through change-point testing. BMC Bioinformatics 22, 183 (2021)``` (https://rdcu.be/clEFG). One of our advantages is that HiCKey outputs p-values of the detected boundaries. It was compiled by Visual C++ and GNU under C++14 standard.
+This is HiCKey for detecting TAD boundaries and their hierarchical structure in HiC data. For the details of our methodology, please refer to ```Xing, H., Wu, Y., Zhang, M.Q. et al. Deciphering hierarchical organization of topologically associated domains through change-point testing. BMC Bioinformatics 22, 183 (2021)``` (https://rdcu.be/clEFG). One of our advantages is that HiCKey outputs p-values of the detected boundaries.
 - "HiCKey.h", "HiCKey.cpp" and "main.cpp" are source files
-- "HiCKey.exe" is the compiled application for Windows
-- "hickey" is the compiled application for Linux
+- "HiCKey.exe" is the application for Windows compiled by Visual C++ under C++14 standard
+- "hickey" is the application for Linux compiled by GNU under C++14 standard
 
 # R package
 
-In another repository "HiCKeyR" (https://github.com/YingruWuGit/HiCKeyR) we have the R package of HiCKey. The R package was constructed by Rcpp with the same C++ code here. There is a new function in the R package that returns a submatrix of the HiC matrix, so user can draw a heatmap to show the segmentation result. The R package works in Windows and MacOS.
+In another repository "HiCKeyR" (https://github.com/YingruWuGit/HiCKeyR) we have the R package of HiCKey. The R package was constructed by Rcpp with the same source code. There is a function in the R package that returns a sub-matrix of segmented HiC matrix, so user can draw a heatmap to show the results. The R package works in Windows and MacOS.
 
 # Examples
 
@@ -27,7 +27,7 @@ HiCKey requires normalized HiC matrix, that the effect of power law decay remove
 
 # Arguments setting
 
-"BrownianP.txt" is the simulated distribution of our test statistic, which is needed in each run.
+- "BrownianP.txt" is the simulated distribution of our test statistic, which is needed in each run.
 
 User needs to specify 6 arguments in the file "arguments_HiCKey.txt" or "arguments_hickey".
 
