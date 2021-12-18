@@ -36,7 +36,7 @@ User needs to specify 6 arguments in the file "arguments_HiCKey.txt" (for Window
 - 3rd line is HiC data form or resolution. If it is in matrix form then input 'm', if it is in list form then input the resolution
 - 4th line is the lower bound of TAD size
 - 5th line is alpha0 to test if a boundary (change-point) is significant
-- 6th line is alpha1 for identifying nested TADs. If it is 0, then HiCKey will not output hierarchical orders.
+- 6th line is alpha1 for identifying nested TADs. If it is 0, then HiCKey will not output hierarchical orders
 
 For example, if HiC data is "nijchr16.txt", then the "arguments_HiCKey.txt" can be:
 ```
