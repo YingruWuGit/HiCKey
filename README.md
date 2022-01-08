@@ -94,6 +94,8 @@ The second column is hierarchical orders. '1' indicates top (outer) layer, it go
 
 The third column is the p-values of the boundaries.
 
+HiCKey also generates a BED file named as "xxxx_TADs.bed" in the same directory.
+
 # References
 
 Rao SSP, Huntley MH, Durand N, Stamenova EK, Bochkov I, Robinson JT, et al. A 3D map of the human genome at kilobase resolution reveals principles of chromatin looping. Cell. 2015;159(7):1665–80.
