@@ -86,7 +86,7 @@ If it shows ```bash: ./hickey: Permission denied```, try ```chmod u+x ./hickey``
 
 # Output
 
-For HiC data file with name "xxxx", the output file would be named as "xxxx_output" in the same directory. The output file has three columns:
+For HiC data file with name "xxxx", the output file would be named as "xxxx_output.txt" in the same directory. The output file has three columns:
 
 The first column is the locations of boundaries (start of TADs).
 
