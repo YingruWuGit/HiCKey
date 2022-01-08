@@ -328,20 +328,55 @@ void Hic::outPut() {
 		std::advance(itr, -1);
 	}
 	fileName3.erase(itr, fileName3.end());
+	std::string fileName4(fileName3);
 	fileName3 += "_output.txt";
-	std::ofstream fout(fileName3);
+	fileName4 += "_TADs.bed";
+	std::vector<std::pair<int, int>> all_bounds{};
+	for (int z = 0; z < _cpS.front(); ++z) {
+		if (_cpI[z] == 0) {
+			all_bounds.emplace_back((_in_form ? z * _in_form : z), 0);
+			break;
+		}
+	}
+	std::ofstream fout3(fileName3);
 	if (_in_form) {
 		for (int c : _cpS) {
-			fout << c * _in_form << '\t' << _cpI[c] << '\t' << _pValue[c] << '\n';
+			fout3 << c * _in_form << '\t' << _cpI[c] << '\t' << _pValue[c] << '\n';
+			all_bounds.emplace_back(c * _in_form, _cpI[c]);
 		}
 	}
 	else {
 		for (int c : _cpS) {
-			fout << c << '\t' << _cpI[c] << '\t' << _pValue[c] << '\n';
+			fout3 << c << '\t' << _cpI[c] << '\t' << _pValue[c] << '\n';
+			all_bounds.emplace_back(c, _cpI[c]);
 		}
 	}
-	fout.close();
-	std::cout << "results were saved in " << fileName3 << std::endl;
+	fout3.close();
+	for (int z = _cpS.back(); z < _cpI.size(); ++z) {
+		if (_cpI[z] == 0) {
+			all_bounds.emplace_back((_in_form ? z * _in_form : z), 0);
+			break;
+		}
+	}
+	int O = *std::max_element(_cpI.begin(), _cpI.end());
+	auto itr1 = all_bounds.begin();
+	std::ofstream fout4(fileName4);
+	while (O > 0) {
+		auto itr2 = std::next(itr1);
+		if (itr2 == all_bounds.end()) {
+			itr1 = all_bounds.begin();
+			--O;
+			continue;
+		}
+		while ((*itr2).second > O) {
+			std::advance(itr2, 1);
+		}
+		fout4 << (*itr1).first << '\t' << (*itr2).first << '\n';
+		itr1 = itr2;
+	}
+	fout4.close();
+	std::cout << "results saved in " << fileName3 << std::endl;
+	std::cout << "and bed file " << fileName4 << std::endl;
 	return;
 }
 
