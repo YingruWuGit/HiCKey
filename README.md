@@ -1,6 +1,6 @@
 # HiCKey
 
-This is HiCKey for detecting TAD boundaries and their hierarchical structure in HiC data. For the details of our methodology, please refer to `Deciphering hierarchical organization of topologically associated domains through change-point testing. BMC Bioinformatics 22, 183 (2021)` (https://rdcu.be/clEFG). One of the advantages of HiCKey is that it outputs p-values of the detected boundaries.
+This is HiCKey for detecting TAD boundaries and their hierarchical structure in HiC data. For the details of our methodology, please refer to `Deciphering hierarchical organization of topologically associated domains through change-point testing. BMC Bioinformatics (2021)` (https://rdcu.be/clEFG). One of the advantages of HiCKey is that it outputs p-values of the detected boundaries.
 - "HiCKey.h", "HiCKey.cpp" and "main.cpp" are the source files
 - "HiCKey.exe" is the application for Windows compiled by Visual C++ under C++14 standard
 - "hickey" is the application for Linux compiled by GNU under C++14 standard
@@ -15,7 +15,7 @@ There are four sample HiC datasets in the folder "examples".
 
 - "nijchr16.txt" is a Human ES Cell Normalized Hi-C Matrix downloaded from Ren Lab (http://chromosome.sdsc.edu/mouse/hi-c/download.html).
 
-- "nijchr16_list.txt" is the list form of the matrix, Tab separated, containing only nonzero reads with their indices (0 based). The first column is row indices, the second column is column indices and the thrid column is count reads.
+- "nijchr16_list.txt" is the list form of the above matrix, Tab separated, containing only nonzero reads with their indices (0 based). The first column is row indices, the second column is column indices and the thrid column is count reads.
 
 - "chr21_50kb.RAWobserved" is one of the unnormalized HiC matrices with resolution 50k produced by Rao (2015) and downloaded from the Gene Expression Omnibus (GEO) database (http://www.ncbi.nlm.nih.gov/geo/). It is in list form similar with "nijchr16_list.txt", just its indices are multiplied by resolution.
 
@@ -35,10 +35,10 @@ User needs to specify 6 arguments in the file "arguments_HiCKey.txt" (for Window
 - 2nd line is the path and name of "BrownianP.txt"
 - 3rd line is HiC data form or resolution. If it is in matrix form then input 'm', if it is in list form then input the resolution
 - 4th line is the lower bound of TAD size
-- 5th line is alpha0 to test if a boundary (change-point) is significant
-- 6th line is alpha1 for identifying nested TADs. If it is 0, then HiCKey will not output hierarchical orders
+- 5th line is threshold alpha0 to test if a boundary (change-point) is significant
+- 6th line is threshold alpha1 for identifying nested TADs. If it is 0, then HiCKey will ignore hierarchical orders
 
-For example, if HiC data is "nijchr16.txt", then the "arguments_HiCKey.txt" can be:
+For example, if HiC data is "nijchr16.txt", the "arguments_HiCKey.txt" can be:
 ```
 C:/Users/Andrew/Documents/GitHub/HiCKey/examples/nijchr16.txt
 C:/Users/Andrew/Documents/GitHub/HiCKey/BrownianP.txt
@@ -47,7 +47,7 @@ m
 0.05
 0.00005
 ```
-If HiC data is "nijchr16_list.txt", then the "arguments_HiCKey.txt" can be:
+If HiC data is "nijchr16_list.txt", the "arguments_HiCKey.txt" can be:
 ```
 C:/Users/Andrew/Documents/GitHub/HiCKey/examples/nijchr16_list.txt
 C:/Users/Andrew/Documents/GitHub/HiCKey/BrownianP.txt
@@ -58,7 +58,7 @@ C:/Users/Andrew/Documents/GitHub/HiCKey/BrownianP.txt
 ```
 Note: the resolution should be 1 if the list form HiC data was derived form matrix form.
 
-If HiC data is "chr21_50kb.RAWobserved", then the "arguments_HiCKey.txt" can be:
+If HiC data is "chr21_50kb.RAWobserved", the "arguments_HiCKey.txt" can be:
 ```
 C:/Users/Andrew/Documents/GitHub/HiCKey/examples/chr21_50kb.RAWobserved
 C:/Users/Andrew/Documents/GitHub/HiCKey/BrownianP.txt
@@ -70,15 +70,15 @@ C:/Users/Andrew/Documents/GitHub/HiCKey/BrownianP.txt
 
 # Usage
 
-Download HiCKey.exe (hickey for Linux, or compile it), arguments_HiCKey.txt (or arguments_hickey), BrownianP.txt and prepare your HiC data file.
+Download HiCKey.exe (hickey, or compile the source code), arguments_HiCKey.txt (arguments_hickey), BrownianP.txt and prepare your HiC data file.
 
-Modify the arguments in arguments_HiCKey.txt (or arguments_hickey).
+Modify the arguments in arguments_HiCKey.txt (arguments_hickey).
 
 For Windows user, open Command Prompt, change directory to the folder containing HiCKey.exe and arguments_HiCKey.txt, then input:
 ```
 HiCKey arguments_HiCKey.txt
 ```
-For Linux user open Terminal, change directory and input:
+For Linux user, open Terminal, change directory to the folder containing hickey and arguments_hickey, then input:
 ```
 ./hickey ./arguments_hickey
 ```
