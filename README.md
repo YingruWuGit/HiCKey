@@ -27,7 +27,7 @@ HiCKey requires normalized HiC data, that the effect of power law decay removed.
 
 # Arguments setting
 
-- "BrownianP.txt" is the simulated distribution of our test statistic, which is needed in each analysis.
+"BrownianP.txt" is the simulated distribution of our test statistic, which is needed in each analysis.
 
 User needs to specify 6 arguments in the file "arguments_HiCKey.txt" (for Windows) or "arguments_hickey" (for Linux).
 
