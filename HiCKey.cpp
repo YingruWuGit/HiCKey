@@ -371,7 +371,7 @@ void Hic::outPut() {
 		while ((*itr2).second > O) {
 			std::advance(itr2, 1);
 		}
-		fout4 << (*itr1).first << '\t' << (*itr2).first << '\n';
+		fout4 << (*itr1).first << '\t' << (*itr2).first << '\t' << std::max((*itr1).second, (*itr2).second) << '\n';
 		itr1 = itr2;
 	}
 	fout4.close();
