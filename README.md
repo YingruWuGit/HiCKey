@@ -1,6 +1,7 @@
 # HiCKey
 
 This is HiCKey for detecting TAD boundaries and their hierarchical structure in HiC data. For the details of our methodology, please refer to `Deciphering hierarchical organization of topologically associated domains through change-point testing. BMC Bioinformatics (2021)` (https://rdcu.be/clEFG). One of the advantages of HiCKey is that it outputs p-values of the detected boundaries.
+
 - "HiCKey.h", "HiCKey.cpp" and "main.cpp" are the source files
 - "HiCKey.exe" is the application for Windows compiled by Visual C++ under C++14 standard
 - "hickey" is the application for Linux compiled by GNU under C++14 standard
@@ -14,11 +15,8 @@ In another repository "HiCKeyR" (https://github.com/YingruWuGit/HiCKeyR) we have
 There are four sample HiC datasets in the folder "examples".
 
 - "nijchr16.txt" is a Human ES Cell Normalized Hi-C Matrix downloaded from Ren Lab (http://chromosome.sdsc.edu/mouse/hi-c/download.html).
-
 - "nijchr16_list.txt" is the list form of the above matrix, Tab separated, containing only nonzero reads with their indices (0 based). The first column is row indices, the second column is column indices and the thrid column is count reads.
-
 - "chr21_50kb.RAWobserved" is one of the unnormalized HiC matrices with resolution 50k produced by Rao (2015) and downloaded from the Gene Expression Omnibus (GEO) database (http://www.ncbi.nlm.nih.gov/geo/). It is in list form similar with "nijchr16_list.txt", just its indices are multiplied by resolution.
-
 - "samp_nested.txt" is the Figure 4 case b in our paper, it was produced by Forcato (2017). We normalized its upper triangular part (see the following section).
 
 # Normalization
@@ -82,19 +80,23 @@ For Linux user, open Terminal, change directory to the folder containing hickey 
 ```
 ./hickey ./arguments_hickey
 ```
-If it shows ```bash: ./hickey: Permission denied```, try ```chmod u+x ./hickey``` first and then execute the program.
+If it shows `bash: ./hickey: Permission denied`, try `chmod u+x ./hickey` first and then execute the program.
 
 # Output
 
 For HiC data file with name "xxxx", the output file would be named as "xxxx_output.txt" in the same directory. The output file has three columns:
 
-The first column is the locations of boundaries (start of TADs).
+- The first column is the locations of boundaries (start of TADs).
+- The second column is hierarchical orders. '1' indicates top (outer) layer, it goes to bottom layer as the order increases, as explained in our paper. If the 6th line in the "arguments_HiCKey.txt" is 0, then all orders would be '1'.
+- The third column is the p-values of the boundaries.
 
-The second column is hierarchical orders. '1' indicates top (outer) layer, it goes to bottom layer as the order increases, as explained in our paper. If the 6th line in the "arguments_HiCKey.txt" is 0, then all orders would be '1'.
+HiCKey also generates a BED file named as "xxxx_TADs.bed" in the same directory. It also has three columns:
 
-The third column is the p-values of the boundaries.
+- The first column is the start of TADs
+- The second column is the end of TADs
+- The third column is the hierarchical order of TADs (defined as the highest hierarchical order of its start and end boundaries)
 
-HiCKey also generates a BED file named as "xxxx_TADs.bed" in the same directory.
+The rows in the BED file is arranged in this way. Suppose that the highest order of all boundaries is 3, HiCKey records all TADs with order <= 3 in the first batch, then all TADs with order <= 2 in the second batch, and all TADs with order <=1 in the last batch.
 
 # References
 
