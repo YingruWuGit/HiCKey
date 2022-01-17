@@ -96,7 +96,7 @@ HiCKey also generates a BED file named as "xxxx_TADs.bed" in the same directory.
 - The second column is the end of TADs
 - The third column is the hierarchical order of TADs (defined as the highest hierarchical order of its start and end boundaries)
 
-The rows in the BED file is arranged in this way. Suppose that the highest order of all boundaries is 3, HiCKey records all TADs with order <= 3 in the first batch, then all TADs with order <= 2 in the second batch, and all TADs with order <=1 in the last batch.
+The rows in the BED file are arranged in this way. Suppose that the highest order of all boundaries is 3, HiCKey records all TADs with order <= 3 in the first batch, then all TADs with order <= 2 in the second batch, and all TADs with order <=1 in the last batch.
 
 # References
 
